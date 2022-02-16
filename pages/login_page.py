@@ -9,7 +9,7 @@ class LoginPage(BasePage):
 
     def should_be_login_url(self):
         try:
-            login_url = browser.current_url
+            login_url = self.browser.current_url
             if "login" in login_url:
                 assert True
             else:
