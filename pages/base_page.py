@@ -20,24 +20,6 @@ class BasePage():
             return False
         return True
 
-    def should_be_text(self, text, text_which_includes):
-        """ Проверка вхождения текста в текст
-        """
-        flag = None
-        try:
-            if text in text_which_includes:
-                flag = True
-            else:
-                flag = False
-        except:
-            print("class BasePage fun should_be_text")
-            return False
-        finally:
-            if flag == True:
-                return True
-            else:
-                return False
-
 
     def solve_quiz_and_get_code(self):
         alert = self.browser.switch_to.alert
