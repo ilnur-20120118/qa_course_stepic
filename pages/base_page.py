@@ -7,6 +7,7 @@ from selenium.webdriver.common.by import By
 from .locators import BasePageLocators
 import math
 
+
 class BasePage():
     def __init__(self, browser, url, timeout=10):
         self.browser = browser
@@ -23,7 +24,6 @@ class BasePage():
             return False
         return True
 
-
     def is_not_element_present(self, how, what, timeout=4):
         # Если елемент не должен появится
         try:
@@ -32,7 +32,6 @@ class BasePage():
             return True
 
         return False
-
 
     def is_disappeared(self, how, what, timeout=4):
         # Если елемент должен исчезнуть
@@ -43,7 +42,6 @@ class BasePage():
             return False
 
         return True
-
 
     def solve_quiz_and_get_code(self):
         alert = self.browser.switch_to.alert
@@ -72,7 +70,9 @@ class BasePage():
         link = self.browser.find_element(*BasePageLocators.LINK_BASKET)
         link.click()
 
-
+    def should_be_authorized_user(self):
+        assert self.is_element_present(*BasePageLocators.USER_ICON), "User icon is not presented," \
+                                                                 " probably unauthorised user"
 
 
 
